@@ -1,23 +1,65 @@
 "use client";
 import React, { useState } from "react";
-import { TECollapse } from "tw-elements-react";
+import Accordion from "./Accordion";
 
 export default function Content() {
-  const [activeElement, setActiveElement] = useState("");
+  // const [activeElement, setActiveElement] = useState("");
 
-  const handleClick = (value) => {
-    if (value === activeElement) {
-      setActiveElement("");
-    } else {
-      setActiveElement(value);
-    }
+  // const handleClick = (value) => {
+  //   if (value === activeElement) {
+  //     setActiveElement("");
+  //   } else {
+  //     setActiveElement(value);
+  //   }
+  // };
+
+  const [accordionItems, setAccordionItems] = useState([
+    {
+      title: "Hujjatlar",
+      content: (
+        <div className="px-10 py-4">
+          <p className="hover:text-primary">Buyruqlar</p>
+          <p className="hover:text-primary">Hisobotlar</p>
+        </div>
+      ),
+      isOpen: false,
+    },
+    {
+      title: "Tariflar",
+      content: (
+        <div className="px-10 py-4">
+          <p className="hover:text-primary">Tarif-1</p>
+          <p className="hover:text-primary">Tarif-2</p>
+          <p className="hover:text-primary">Tarif-3</p>
+        </div>
+      ),
+      isOpen: false,
+    },
+    {
+      title: "Yangiliklar",
+      isOpen: false,
+    },
+  ]);
+  const toggleAccordionItem = (index) => {
+    const updatedAccordionItems = [...accordionItems];
+    updatedAccordionItems[index].isOpen = !updatedAccordionItems[index].isOpen;
+    setAccordionItems(updatedAccordionItems);
   };
   return (
     <>
       <section className="py-12">
         <div className="container">
           <div className="">
-            <div id="accordionExample">
+            {accordionItems.map((item, index) => (
+              <Accordion
+                key={index}
+                title={item.title}
+                content={item.content}
+                isOpen={item.isOpen}
+                toggleAccordion={() => toggleAccordionItem(index)}></Accordion>
+            ))}
+
+            {/* <div id="accordionExample">
               <div className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
                 <h2 className="mb-0" id="headingOne">
                   <button
@@ -148,7 +190,7 @@ export default function Content() {
                 className="!mt-0 !shadow-none">
                 <div className="px-5 py-4"></div>
               </TECollapse>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

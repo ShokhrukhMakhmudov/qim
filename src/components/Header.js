@@ -30,7 +30,7 @@ function Header() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="bg-white mb-5 shadow-[0_1px_30px_-15px_#eaa936]">
+        className="bg-white mb-5 shadow-[0_1px_30px_-15px_#023059]">
         <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
           <div className="flex lg:flex-1">
             <Link
@@ -60,7 +60,7 @@ function Header() {
               variants={item}
               href="#production"
               className="text-lg font-medium hover:text-primary leading-6 text-gray-900">
-              Tariflar
+              Hujjatlar
             </Link>
             <Link
               variants={item}

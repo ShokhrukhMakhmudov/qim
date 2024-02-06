@@ -35,16 +35,16 @@ function Contacts() {
           <div className="bg-secondary p-5 sm:p-10 flex flex-col gap-10 w-full lg:w-1/2 ">
             <div className="text-primary text-xl sm:text-2xl font-medium border-b-2">
               <p>Email:</p>
-              <p className="text-white">grandmillgroup@gmail.com </p>
+              <p className="text-white">qirguliissiqlikmanbai@gmail.com</p>
             </div>
             <div className="text-primary flex flex-col text-xl sm:text-2xl font-medium  border-b-2">
               <p>Telefon raqamlar:</p>
               <Link
-                href="tel:+998904088222"
+                href="tel:+998970422525"
                 className="text-white hover:text-primary">
-                +998 90 408 82 22
+                +998 97 042 25 25
               </Link>
-              <Link
+              {/* <Link
                 href="tel:+998902746000"
                 className="text-white hover:text-primary">
                 +998 90 274 60 00
@@ -53,13 +53,13 @@ function Contacts() {
                 href="tel:+998939739009"
                 className="text-white hover:text-primary">
                 +998 93 973 90 09
-              </Link>
+              </Link> */}
             </div>
             <div className="text-primary text-xl sm:text-2xl font-medium border-b-2">
               <p>Manzil:</p>
               <p className="text-white">
-                Fargona viloyati, Furqat tumani, Navbaxor shaxarchasi
-                temiryolchi ko'chasi 12-uy
+                Farg'ona viloyati, Farg'ona shahar,
+                <br /> Kokalamzor ko'chasi 5-uy
               </p>
             </div>
           </div>

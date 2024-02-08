@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Accordion from "./Accordion";
 import file1 from "./pdfs/VI-63-2-11-0-K_24.pdf";
 import file2 from "./pdfs/file-2.docx";
+import file3 from "./pdfs/file-3.pdf";
+
 export default function Content() {
   // const [activeElement, setActiveElement] = useState("");
 
@@ -18,7 +20,7 @@ export default function Content() {
       title: "Hujjatlar",
       content: (
         <div className="px-10 pb-5">
-          <div>
+          <div className="flex flex-col gap-3">
             <a className="flex gap-3 items-center" href={file1} download>
               <svg
                 width="24"
@@ -42,6 +44,18 @@ export default function Content() {
               </svg>
 
               <p className="hover:text-primary">Ulgurji shartnoma 2024</p>
+            </a>
+
+            <a className="flex gap-3 items-center" href={file3} download>
+              <svg
+                width="24"
+                height="24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="red">
+                <path d="M18 0H6C4.346 0 3 1.346 3 3v18c0 1.654 1.346 3 3 3h12c1.654 0 3-1.346 3-3V6c0-1.654-1.346-3-3-3zm1 21c0 .551-.449 1-1 1H6c-.551 0-1-.449-1-1V3c0-.551.449-1 1-1h12c.551 0 1 .449 1 1v18z" />
+                <path d="M14 5h-4V4h4v1zm0 2h-4V6h4v1zm0 2h-4V8h4v1zm0 2h-4v-1h4v1zM7 7H3v14h1v1h14v-1h1V9h-1V4H7zm4 4H8v1h3v-1zm0 2H8v1h3v-1zm0 2H8v1h3v-1zm0 2H8v1h3v-1zm0 2H8v1h3v-1zm5-8h-1V4h1v2z" />
+              </svg>
+              <p className="hover:text-primary">Shartnoma_06.02</p>
             </a>
           </div>
         </div>

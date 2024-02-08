@@ -46,7 +46,7 @@ export default function Content() {
               <p className="hover:text-primary">Ulgurji shartnoma 2024</p>
             </a>
 
-            <a className="flex gap-3 items-center" href={file3} download>
+            {/* <a className="flex gap-3 items-center" href={file3} download>
               <svg
                 width="24"
                 height="24"
@@ -56,7 +56,7 @@ export default function Content() {
                 <path d="M14 5h-4V4h4v1zm0 2h-4V6h4v1zm0 2h-4V8h4v1zm0 2h-4v-1h4v1zM7 7H3v14h1v1h14v-1h1V9h-1V4H7zm4 4H8v1h3v-1zm0 2H8v1h3v-1zm0 2H8v1h3v-1zm0 2H8v1h3v-1zm0 2H8v1h3v-1zm5-8h-1V4h1v2z" />
               </svg>
               <p className="hover:text-primary">Shartnoma_06.02</p>
-            </a>
+            </a> */}
           </div>
         </div>
       ),
@@ -73,10 +73,10 @@ export default function Content() {
       ),
       isOpen: false,
     },
-    {
-      title: "Yangiliklar",
-      isOpen: false,
-    },
+    // {
+    //   title: "Yangiliklar",
+    //   isOpen: false,
+    // },
   ]);
   const toggleAccordionItem = (index) => {
     const updatedAccordionItems = [...accordionItems];

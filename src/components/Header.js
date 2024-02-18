@@ -3,9 +3,6 @@ import logo from "../../public/logo.png";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Sidebar from "./Sidebar/Sidebar";
-import { Fondamento } from "next/font/google";
-
-const logoFont = Fondamento({ subsets: ["latin"], weight: "400" });
 
 function Header() {
   const container = {
@@ -31,10 +28,10 @@ function Header() {
         initial="hidden"
         animate="show"
         className="bg-white mb-5 shadow-[0_1px_30px_-15px_#023059]">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between py-4 px-4 lg:px-0">
           <div className="flex lg:flex-1">
             <Link
-              href="#header"
+              href="/"
               variants={item}
               className="-m-1.5 p-1.5 flex items-center gap-2 ">
               <img src={logo.src} alt="logo" width={72} />
@@ -46,25 +43,25 @@ function Header() {
           <div className="hidden lg:flex lg:gap-x-12">
             <Link
               variants={item}
-              href="#products"
+              href="/news"
               className="text-lg font-medium hover:text-primary leading-6 text-gray-900">
               Yangiliklar
             </Link>
             <Link
               variants={item}
-              href="#about"
+              href="/#about"
               className="text-lg font-medium hover:text-primary leading-6 text-gray-900">
               Biz haqimizda
             </Link>
             <Link
               variants={item}
-              href="#production"
+              href="/documents"
               className="text-lg font-medium hover:text-primary leading-6 text-gray-900">
               Hujjatlar
             </Link>
             <Link
               variants={item}
-              href="#contacts"
+              href="/#contacts"
               className="text-lg font-medium hover:text-primary leading-6 text-gray-900">
               Kontaktlar
             </Link>

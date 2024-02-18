@@ -5,6 +5,7 @@ import {
   MdOutlineFeaturedPlayList,
   MdOutlineShoppingCart,
 } from "react-icons/md";
+import { IoNewspaperOutline, IoDocumentsOutline } from "react-icons/io5";
 const variants = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
@@ -15,19 +16,19 @@ const variants = {
 };
 const itemIds = [
   {
-    text: "Mahsulotlar",
-    icon: <MdOutlineShoppingCart />,
-    link: "#products",
+    text: "Yangiliklar",
+    icon: <IoNewspaperOutline />,
+    link: "/news",
   },
   {
     text: "Biz haqimizda",
     icon: <AiOutlineInfoCircle />,
-    link: "#about",
+    link: "/#about",
   },
   {
-    text: "Ishlab chiqarish",
-    icon: <MdOutlineFeaturedPlayList />,
-    link: "#production",
+    text: "Hujjatlar",
+    icon: <IoDocumentsOutline />,
+    link: "/documents",
   },
 
   {

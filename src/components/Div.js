@@ -1,8 +1,13 @@
 import React from "react";
 
-function Div() {
+function Div({ color }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="47" fill="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="42"
+      height="47"
+      fill="none"
+      color={color}>
       <g opacity=".95">
         <path
           fill="url(#a)"

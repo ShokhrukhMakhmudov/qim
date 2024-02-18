@@ -1,0 +1,14 @@
+.article {
+  padding: 15px;
+  border-radius: 8px;
+}
+.article__title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #fff;
+}
+.article__footer {
+  color: #9f9f9f;
+}
+.article__desc {
+  flex-grow: 1;
+}

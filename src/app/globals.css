@@ -36,7 +36,7 @@
   }
   .hero-desc {
     -webkit-text-stroke: 0.3px #000000;
-    text-shadow: 1px 2px #000;
+    text-shadow: 1px 2px #000000;
   }
   .about-icon circle {
     fill: #f67330;
@@ -51,4 +51,47 @@
 }
 .footer-logo svg stop {
   stop-color: currentColor;
+}
+.logo-shadow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 30%;
+  left: 30%;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 0px 50px 50px #fff;
+  z-index: 0;
+}
+/* carousel */
+.next,
+.prev {
+  top: calc(50% - 20px);
+  position: absolute;
+  background: white;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev {
+  left: 10px;
+  transform: rotateY(180deg);
+}
+
+.div-logo:hover svg {
+  transform: rotateY(3600deg);
+  transition: transform 20s linear;
 }

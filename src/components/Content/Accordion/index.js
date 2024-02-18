@@ -1,6 +1,9 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function Accordion(props) {
   return (
-    <div className="border rounded-md mb-1">
+    <motion.div className="border rounded-md mb-1 bg-secondary text-white text-2xl">
       <button
         className="w-full p-4 text-left bg-gray-200  
                            hover:bg-gray-300 transition duration-300"
@@ -14,7 +17,11 @@ export default function Accordion(props) {
           &#9660;
         </span>
       </button>
-      {props.isOpen && <div className="bg-white">{props.content}</div>}
-    </div>
+      {props.isOpen && (
+        <div className="bg-white text-secondary pt-5 border">
+          {props.children}
+        </div>
+      )}
+    </motion.div>
   );
 }

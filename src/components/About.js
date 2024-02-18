@@ -1,13 +1,17 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { FcPlus } from "react-icons/fc";
-import BackgroundVideo from "./BackgroundVideo/index";
-import { Fondamento } from "next/font/google";
-import { WHEATS } from "./Images";
-const logoFont = Fondamento({ subsets: ["latin"], weight: "400" });
+import { useSelector } from "react-redux";
+
+export const metadata = {
+  title: "Qirguli issiqlik manbai MCHJ",
+  description:
+    "«Qirguli Issiqlik Manbai» Mas'uliyati Cheklangan Jamiyati O'zbekiston Respublikasi Bosh Vazirining 2005-yil 20-sentyabr kungi yig'ilish qarori va Farg'ona viloyati xokimining 2005-yil 25-noyabr kungi qaroriga asosan Farg'ona viloyati «Issiqlik manbai» ishlab chiqarish boshqarmasining Farg'ona shahar Qirguli mavzesi uchastkazi baʼzasida tashkil qilingan. Farg'ona shahar xokimligida 16.09.2005 yil kuni №848-son bilan ro'yxatdan o'tkazilgan. Jamiyatimiz barcha issiqlik energiyasini 'IES' AJ Farg'ona IEM filialidan sotib oladi. Jamiyatimiz bugungi kunda 317 dona ko'p qavatli uylarga (16654 dona iste'molchi) issiq suv yetkazib beradi. Ulgurji iste'molchilar uchun 1 Gkal - 416.472 so'm (QQS-siz): Issiq suv uchun odam soniga - 27724 so'm, hisob bo'yicha 1 m3 - 4404 so'm.",
+};
 
 const About = () => {
+  const { about } = useSelector((state) => state.dataReducer);
+  console.log(about);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -18,6 +22,7 @@ const About = () => {
       mainControls.start("visible");
     }
   }, [isInView]);
+
   return (
     <motion.section
       id="about"
@@ -29,59 +34,41 @@ const About = () => {
       initial="hidden"
       animate={mainControls}
       transition={{ duration: 0.5, delay: 0.5 }}
-      className="py-10 md:py-20">
-      <div className="container mx-auto px-6 lg:px-8 relative">
-        <img
-          className="absolute left-0"
-          src={WHEATS[0].src}
-          alt="wheat"
-          width={128}
-        />
-        <img
-          className="absolute right-0"
-          src={WHEATS[0].src}
-          alt="wheat"
-          width={128}
-        />
-        <img
-          className="absolute bottom-[-80px] right-0 rotate-180"
-          src={WHEATS[0].src}
-          alt="wheat"
-          width={128}
-        />
-        <img
-          className="absolute bottom-[-80px] left-0 rotate-180"
-          src={WHEATS[0].src}
-          alt="wheat"
-          width={128}
-        />
-        <div className="mx-auto text-center mb-10">
-          <p className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Biz haqimizda
-          </p>
-        </div>
-        <section className="w-full relative">
-          <BackgroundVideo />
-          <div className="absolute bg-[#000000a2] top-0 bottom-0 left-0 right-0 flex items-center justify-center">
-            <div className="text-white w-full p-3 sm:w-3/5 sm:text-center">
-              <h1
-                className={`${logoFont.className} text-[#000] text-sm md:text-4xl bg-primary inline-block p-1 sm:p-3 sm:mb-3`}>
-                Grand Mill Group
-              </h1>
-              <p className="hero-desc text-[white] text-[10px] sm:text-xs md:text-xl lg:text-2xl font-medium">
-                {/* Birinchi navli bug'doy uni */}
-                "Grand Mill Group" -bu O`zbekistondagi eng zamonaviy
-                tegirmonlardan biri bo`lib, o`z mahsulotlarini dunyoning eng
-                zamonaviy ,jahon standartlariga to`liq javob beradigan
-                texnologiyalar yordamida ishlab chiqaradi.Bu tegirmonimiz
-                sutkasiga 200 tonna bug`doyni qayta ishlash uchun mo`jallangan
-                bo`lib O`rta Osiyoda tajribaga ega bolgan "IMAS MAKINA" turk
-                firmasi texnikalaridan qurilgan va 2023 yil boshidan o`z ish
-                faolyatini boshladi.
-              </p>
-            </div>
+      className="bg-secondary py-10 md:py-20 mt-10">
+      <div className="container mx-auto px-6 lg:px-8 ">
+        {!about ? (
+          <div className="flex items-center justify-center">
+            <img src="/loader200.gif" alt="loader" />
           </div>
-        </section>
+        ) : (
+          <section className="w-full flex items-center justify-center lg:justify-between">
+            <div>
+              <div className="mx-auto text-center mb-10">
+                <p className="text-2xl font-bold tracking-tight text-white sm:text-4xl">
+                  Biz haqimizda
+                </p>
+              </div>
+              <div className="text-white w-full">
+                <p className="max-w-[620px] text-[white] text-[10px] sm:text-xs md:text-xl lg:text-xl font-medium text-justify ">
+                  &nbsp; {about[0].content} <br /> <br />
+                </p>
+                <p className="max-w-[620px] text-[#c5c5c5] text-[10px] sm:text-xs md:text-xl lg:text-xl font-medium text-justify ">
+                  Ulgurji iste'molchilar uchun 1 Gkal - 416.472 so'm (QQS-siz):
+                  Issiq suv uchun odam soniga - 27724 so'm, hisob bo'yicha 1 m
+                  <sup>3</sup> - 4404 so'm.
+                </p>
+              </div>
+            </div>
+
+            <img
+              className="hidden lg:block"
+              src={"/logo-dark.png"}
+              alt="site logo"
+              width={502}
+              height={322}
+            />
+          </section>
+        )}
       </div>
     </motion.section>
   );

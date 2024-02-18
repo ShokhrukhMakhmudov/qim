@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {
-  output: "export",
-  distDir: "dist",
-}; // next.config.js
-
 module.exports = {
-  output: "export",
+  // output: "export",
   distDir: "dist",
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+        pathname: "v0/b/qim-lp.appspot.com/o",
+      },
+    ],
+  },
   webpack: (config, { isServer }) => {
     config.module.rules.push(
       {

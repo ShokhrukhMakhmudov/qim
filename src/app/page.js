@@ -9,33 +9,34 @@ import { db } from "./firebase";
 import { putData } from "@/redux/features/data.slice";
 import { useDispatch } from "react-redux";
 
-async function getData() {
-  const dispatch = useDispatch();
-  // News
-  const queryNews = await getDocs(collection(db, "news"));
-  const newsData = queryNews.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
-
-  dispatch(putData({ news: newsData }));
-  // Laws
-  const queryLaws = await getDocs(collection(db, "laws"));
-
-  const lawsData = queryLaws.docs.map((doc) => doc.data());
-
-  dispatch(putData({ laws: lawsData }));
-  // About
-  const queryAbout = await getDocs(collection(db, "about"));
-
-  const aboutData = queryAbout.docs.map((doc) => doc.data());
-
-  dispatch(putData({ about: aboutData }));
-
-  return;
-}
-
 export default async function Home() {
+  async function getData() {
+    const dispatch = useDispatch();
+
+    // About
+    const queryAbout = await getDocs(collection(db, "about"));
+
+    const aboutData = queryAbout.docs.map((doc) => doc.data());
+
+    dispatch(putData({ about: aboutData }));
+
+    // News
+    const queryNews = await getDocs(collection(db, "news"));
+    const newsData = queryNews.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+    dispatch(putData({ news: newsData }));
+    // Laws
+    const queryLaws = await getDocs(collection(db, "laws"));
+
+    const lawsData = queryLaws.docs.map((doc) => doc.data());
+
+    dispatch(putData({ laws: lawsData }));
+
+    return;
+  }
   getData();
 
   return (

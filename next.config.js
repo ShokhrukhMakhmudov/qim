@@ -2,7 +2,13 @@
 
 module.exports = {
   // output: "export",
-  distDir: "dist",
+  // distDir: "dist",
+  // experimental: {
+  //   serverActions: {
+  //     allowedOrigins: ["localhost:3000", "qirguli-issiqlik.uz"],
+  //   },
+  //   serverComponents: true,
+  // },
   images: {
     remotePatterns: [
       {

@@ -6,49 +6,6 @@ import { useSelector } from "react-redux";
 import { FaUserTie, FaRegClock, FaPhone } from "react-icons/fa";
 import { FaUserTie as FaUsertie } from "react-icons/fa6";
 
-function Tariflar() {
-  const [activeItem, setActiveItem] = useState(0);
-
-  return (
-    <div className="px-10 py-4 flex items-start justify-between">
-      <p>
-        Ulgurji iste'molchilar uchun 1 Gkal - 416.472 so'm (QQS-siz): Issiq suv
-        uchun odam soniga - 27724 so'm, hisob bo'yicha 1 m<sup>3</sup> - 4404
-        so'm.
-      </p>
-      {/* <div className="flex flex-col gap-4">
-        <button
-          className="hover:text-primary"
-          onClick={() => {
-            setActiveItem(1);
-          }}></button>
-        <button
-          className="hover:text-primary"
-          onClick={() => {
-            setActiveItem(2);
-          }}>
-          Tarif-2
-        </button>
-        <button
-          className="hover:text-primary"
-          onClick={() => {
-            setActiveItem(3);
-          }}>
-          Tarif-3
-        </button>
-      </div>
-
-      {activeItem === 0 ? (
-        <div>
-          {"<--"} Biz sizga quydagi tariflarni <br /> {"<--"}tafsiya qilamiz
-        </div>
-      ) : (
-        <div> Tarif - {activeItem}</div>
-      )} */}
-    </div>
-  );
-}
-
 export default function Content() {
   const { laws } = useSelector((state) => state.dataReducer);
 
@@ -98,50 +55,62 @@ export default function Content() {
               title={"Rahbariyat"}
               isOpen={accordionItems[2].isOpen}
               toggleAccordion={() => toggleAccordionItem(2)}>
-              <div className="container flex justify-around gap-5 pt-3 pb-5">
-                <div className="flex flex-col items-center gap-3">
-                  <div className="flex items-center gap-2 text-black">
-                    <FaUserTie />
-                    Direktor:
+              <div className="container flex flex-col justify-around gap-5 pt-3 pb-5">
+                <div className="flex flex-col items-center gap-3 mb-8">
+                  <div className="flex items-center gap-2 text-black text-center">
+                    "Qirguli issiqlik manbai" MCHJ kuzatuv kengashi raisi:
                   </div>
 
-                  <p> Tajibayev Nodirbek Abduvohidovich</p>
-                  <div className="flex items-center gap-2 text-black">
-                    <FaRegClock />
-                    Qabul vaqti:
-                  </div>
-                  <p> Seshanba-Juma 15:00 - 17:00</p>
-                  <div className="flex items-center gap-2 text-black">
-                    <FaPhone />
-                    Telefon raqam:
-                  </div>
-
-                  <a
-                    className="hover:text-primary"
-                    href="tel:+998 90 274 50 20">
-                    +998 90 274 50 20
-                  </a>
+                  <p> Xakimov Ulug'bek G'aniyevich</p>
                 </div>
-                <div className="flex flex-col items-center gap-3">
-                  <div className="flex items-center gap-2 text-black">
-                    <FaUsertie />
-                    Bosh muhandis:
+                <div className="w-full flex flex-col sm:flex-row  justify-around">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="flex items-center gap-2 text-black">
+                      <FaUserTie />
+                      Direktor:
+                    </div>
+
+                    <p className="text-center">
+                      {" "}
+                      Tajibayev Nodirbek Abduvohidovich
+                    </p>
+                    <div className="flex items-center gap-2 text-black">
+                      <FaRegClock />
+                      Qabul vaqti:
+                    </div>
+                    <p className="text-center"> Seshanba-Juma 15:00 - 17:00</p>
+                    <div className="flex items-center gap-2 text-black">
+                      <FaPhone />
+                      Telefon raqam:
+                    </div>
+
+                    <a
+                      className="hover:text-primary"
+                      href="tel:+998 90 274 50 20">
+                      +998 90 274 50 20
+                    </a>
                   </div>
-                  <p>Abdurahimov Shuxratjon</p>
-                  <div className="flex items-center gap-2 text-black">
-                    <FaRegClock />
-                    Qabul vaqti:
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="flex items-center gap-2 text-black">
+                      <FaUsertie />
+                      Bosh muhandis:
+                    </div>
+                    <p className="text-center">Abdurahimov Shuxratjon</p>
+                    <div className="flex items-center gap-2 text-black">
+                      <FaRegClock />
+                      Qabul vaqti:
+                    </div>
+                    <p className="text-center">Dushanba-Juma 8:00 - 11:00</p>
+                    <div className="flex items-center gap-2 text-black">
+                      <FaPhone />
+                      Telefon raqam:
+                    </div>
+                    <a
+                      className="hover:text-primary"
+                      href="tel:+998 91 655 23 00">
+                      +998 91 655 23 00
+                    </a>
                   </div>
-                  <p>Dushanba-Juma 8:00 - 11:00</p>
-                  <div className="flex items-center gap-2 text-black">
-                    <FaPhone />
-                    Telefon raqam:
-                  </div>
-                  <a
-                    className="hover:text-primary"
-                    href="tel:+998 91 655 23 00">
-                    +998 91 655 23 00
-                  </a>
                 </div>
               </div>
             </Accordion>

@@ -2,6 +2,7 @@ import Carousel from "@/components/News/slider";
 import { collection, getDocs } from "firebase/firestore";
 import React from "react";
 import { db } from "../firebase";
+import Link from "next/link";
 
 async function getNews() {
   const queryNews = await getDocs(collection(db, "news"));
@@ -16,7 +17,7 @@ async function getNews() {
 
 export default async function News() {
   const news = await getNews();
-
+  console.log(news && news);
   return (
     <section className="py-10">
       <div className="container">
@@ -25,15 +26,15 @@ export default async function News() {
         </h2>
         {news ? (
           <div className="flex gap-10 justify-center">
-            {news.map(({ images, date, title }, ind) => {
+            {news.map(({ id, images, date, title }) => {
               return (
-                <div className="max-w-[360px]" key={ind}>
+                <Link href={`/news/${id}`} className="max-w-[360px] " key={id}>
                   <Carousel images={images} />
                   <p className="px-2 py-1 bg-[#dfdfdf] rounded-sm inline-block">
                     {date}
                   </p>
                   <h3 className="mt-4 text-lg md:text-xl">{title}</h3>
-                </div>
+                </Link>
               );
             })}
           </div>

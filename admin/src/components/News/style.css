@@ -134,8 +134,7 @@
 .upload-image-wrapper {
   width: 100%;
   display: flex;
-
-  justify-content: start;
+  justify-content: left;
 }
 .uploaded-image {
   padding: 5px;

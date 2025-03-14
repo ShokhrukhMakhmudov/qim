@@ -1,6 +1,5 @@
 "use client";
 import { useAnimation, useInView, motion } from "framer-motion";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -119,12 +118,12 @@ function Contacts() {
               onSubmit={handleSubmit(onSubmit)}
               className="flex flex-col gap-3">
               <div className="flex flex-col gap-2 text-white text-xl sm:text-2xl font-medium">
-                <label htmlFor="name">Ismingiz:</label>
+                <label htmlFor="name">Murojaat manzilingiz:</label>
                 <input
                   className="p-2 text-black rounded-md"
                   id="name"
                   type="text"
-                  placeholder="Ismingizni kiriting..."
+                  placeholder="Murojaat manzilingiz kiriting..."
                   {...register("name", {
                     required: true,
                     min: 3,

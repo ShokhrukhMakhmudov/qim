@@ -27,7 +27,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route
           path="/admin"
           element={

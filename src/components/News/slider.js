@@ -2,7 +2,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
 
 function NextArrow(props) {
   const { className, style, onClick } = props;
@@ -58,17 +57,27 @@ function Carousel({ images }) {
 
   return (
     <Slider {...settings} className="relative">
-      {images.map((img, ind) => {
-        return (
-          <div key={ind}>
-            <img
-              className="object-left brightness-75" /*max-h-[562.5px] */
-              src={img}
-              alt="news image"
-            />
-          </div>
-        );
-      })}
+      {images ? (
+        images.map((img, ind) => {
+          return (
+            <div key={ind}>
+              <img
+                className="object-center object-cover brightness-75 w-full max-h-[270px]" /*max-h-[562.5px] */
+                src={img}
+                alt="news image"
+              />
+            </div>
+          );
+        })
+      ) : (
+        <div>
+          <img
+            className="object-center object-cover brightness-75 w-full max-h-[270px]" /*max-h-[562.5px] */
+            src={"/logo.png"}
+            alt="news image"
+          />
+        </div>
+      )}
     </Slider>
   );
 }

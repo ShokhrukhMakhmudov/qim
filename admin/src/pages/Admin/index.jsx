@@ -24,10 +24,9 @@ function Admin() {
               onClick={() => {
                 setModal((prev) => !prev);
               }}
-              disabled={category !== "Choose a category" ? "" : true}
-            >
+              disabled={category !== "Choose a category" ? "" : true}>
               <BiPlusCircle />
-              add a new item
+              Qo'shish
             </button>
           </div>
           <Outlet

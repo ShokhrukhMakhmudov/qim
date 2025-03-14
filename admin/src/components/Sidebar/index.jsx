@@ -31,12 +31,12 @@ function Sidebar() {
           </NavLink>
         </li>
 
-        <li className="sidebar__item">
+        {/* <li className="sidebar__item">
           <NavLink to="/admin/books" className="sidebar__link">
             <Instructions />
             Tariflar
           </NavLink>
-        </li>
+        </li> */}
         <li className="sidebar__item">
           <NavLink to="/admin/scientific" className="sidebar__link">
             <IoJournalOutline />

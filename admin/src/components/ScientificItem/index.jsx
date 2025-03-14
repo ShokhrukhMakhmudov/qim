@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { TfiTrash, TfiPencil } from "react-icons/tfi";
-import { db, months, storage } from "../../firebase/config";
-import { deleteObject, ref } from "firebase/storage";
+import { db } from "../../firebase/config";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import loader from "../../assets/loader200.gif";
 
-function ScientificItem({ data: { id, name, content }, firstRun }) {
+function ScientificItem({ data: { id, name, content, subtitle }, firstRun }) {
   const [delModal, setDelModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const [text, setText] = useState(content);
+  const [subText, setSubText] = useState(subtitle ?? "");
 
   const handleSubmit = async (itemId) => {
     const ref = doc(db, "about", itemId);
@@ -19,6 +19,7 @@ function ScientificItem({ data: { id, name, content }, firstRun }) {
 
     await updateDoc(ref, {
       content: text,
+      subtitle: subText,
     });
     setLoading(false);
     setEditModal(false);
@@ -37,6 +38,7 @@ function ScientificItem({ data: { id, name, content }, firstRun }) {
       <div className="grid-wrapper__item article" key={id}>
         <h4 className="article__title">{name}</h4>
         <h5 className="article__desc">{content}</h5>
+        <h5 className="article__desc">{subtitle ?? ""}</h5>
 
         <button
           className="delete-btn grid-wrapper__item--btn"
@@ -92,6 +94,20 @@ function ScientificItem({ data: { id, name, content }, firstRun }) {
                     value={text}
                     onChange={(e) => {
                       setText(e.target.value);
+                    }}></textarea>
+                </label>
+
+                <label htmlFor="">
+                  <p>Subtitle:</p>
+                  <textarea
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="5"
+                    placeholder="Maqola textini kiriting"
+                    value={subText}
+                    onChange={(e) => {
+                      setSubText(e.target.value);
                     }}></textarea>
                 </label>
                 <button className="add-btn" type="submit">
